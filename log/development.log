@@ -34866,3 +34866,645 @@ Processing by CartsController#myCart as */*
 Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 1.4ms)
 
 
+Started GET "/cartItems/13" for ::1 at 2019-10-23 10:52:49 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/feventsegay/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 35ms (Views: 8.5ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:52:51 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.8ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 15ms (Views: 8.8ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/addToCart/13/20" for ::1 at 2019-10-23 10:52:55 -0500
+Processing by CartsController#create as */*
+  Parameters: {"user_id"=>"13", "item_id"=>20, "quantity"=>1, "item_name"=>"Toy Car", "price"=>5, "image_url"=>"http://pluspng.com/img-png/toy-car-png-free-red-toy-car-kids-toys-toy-car-png-image-and-clipart-650.jpg", "id"=>"13", "itemId"=>"20", "cart"=>{"user_id"=>"13", "quantity"=>1, "item_name"=>"Toy Car", "price"=>5, "image_url"=>"http://pluspng.com/img-png/toy-car-png-free-red-toy-car-kids-toys-toy-car-png-image-and-clipart-650.jpg", "item_id"=>20}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:12
+  [1m[36mAllItem Load (0.3ms)[0m  [1m[34mSELECT  "all_items".* FROM "all_items" WHERE "all_items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[36mCart Create (3.0ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "quantity", "item_name", "price", "image_url", "item_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 13], ["quantity", "1"], ["item_name", "Toy Car"], ["price", 5], ["image_url", "http://pluspng.com/img-png/toy-car-png-free-red-toy-car-kids-toys-toy-car-png-image-and-clipart-650.jpg"], ["item_id", 20]]
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:14
+Completed 204 No Content in 15ms (ActiveRecord: 4.7ms)
+
+
+Started POST "/addToCart/13/20" for ::1 at 2019-10-23 10:52:58 -0500
+Processing by CartsController#create as */*
+  Parameters: {"user_id"=>"13", "item_id"=>20, "quantity"=>1, "item_name"=>"Toy Car", "price"=>5, "image_url"=>"http://pluspng.com/img-png/toy-car-png-free-red-toy-car-kids-toys-toy-car-png-image-and-clipart-650.jpg", "id"=>"13", "itemId"=>"20", "cart"=>{"user_id"=>"13", "quantity"=>1, "item_name"=>"Toy Car", "price"=>5, "image_url"=>"http://pluspng.com/img-png/toy-car-png-free-red-toy-car-kids-toys-toy-car-png-image-and-clipart-650.jpg", "item_id"=>20}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:12
+  [1m[36mAllItem Load (0.5ms)[0m  [1m[34mSELECT  "all_items".* FROM "all_items" WHERE "all_items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "quantity", "item_name", "price", "image_url", "item_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 13], ["quantity", "1"], ["item_name", "Toy Car"], ["price", 5], ["image_url", "http://pluspng.com/img-png/toy-car-png-free-red-toy-car-kids-toys-toy-car-png-image-and-clipart-650.jpg"], ["item_id", 20]]
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:14
+Completed 204 No Content in 8ms (ActiveRecord: 3.6ms)
+
+
+Started POST "/addToCart/13/26" for ::1 at 2019-10-23 10:53:02 -0500
+Processing by CartsController#create as */*
+  Parameters: {"user_id"=>"13", "item_id"=>26, "quantity"=>1, "item_name"=>"Soccer Ball", "price"=>25, "image_url"=>"https://images-na.ssl-images-amazon.com/images/I/61Jigwd1kKL._SX425_.jpg", "id"=>"13", "itemId"=>"26", "cart"=>{"user_id"=>"13", "quantity"=>1, "item_name"=>"Soccer Ball", "price"=>25, "image_url"=>"https://images-na.ssl-images-amazon.com/images/I/61Jigwd1kKL._SX425_.jpg", "item_id"=>26}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:12
+  [1m[36mAllItem Load (0.3ms)[0m  [1m[34mSELECT  "all_items".* FROM "all_items" WHERE "all_items"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "quantity", "item_name", "price", "image_url", "item_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 13], ["quantity", "1"], ["item_name", "Soccer Ball"], ["price", 25], ["image_url", "https://images-na.ssl-images-amazon.com/images/I/61Jigwd1kKL._SX425_.jpg"], ["item_id", 26]]
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:14
+Completed 204 No Content in 5ms (ActiveRecord: 1.6ms)
+
+
+Started POST "/addToCart/13/27" for ::1 at 2019-10-23 10:53:05 -0500
+Processing by CartsController#create as */*
+  Parameters: {"user_id"=>"13", "item_id"=>27, "quantity"=>1, "item_name"=>"Basketball Ball", "price"=>26, "image_url"=>"https://i5.walmartimages.com/asr/0f9285e2-00c7-442e-aeff-cee1cca483de_1.43e5d5da143907b8c3329525d9a44a08.jpeg", "id"=>"13", "itemId"=>"27", "cart"=>{"user_id"=>"13", "quantity"=>1, "item_name"=>"Basketball Ball", "price"=>26, "image_url"=>"https://i5.walmartimages.com/asr/0f9285e2-00c7-442e-aeff-cee1cca483de_1.43e5d5da143907b8c3329525d9a44a08.jpeg", "item_id"=>27}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:12
+  [1m[36mAllItem Load (0.3ms)[0m  [1m[34mSELECT  "all_items".* FROM "all_items" WHERE "all_items"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "quantity", "item_name", "price", "image_url", "item_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 13], ["quantity", "1"], ["item_name", "Basketball Ball"], ["price", 26], ["image_url", "https://i5.walmartimages.com/asr/0f9285e2-00c7-442e-aeff-cee1cca483de_1.43e5d5da143907b8c3329525d9a44a08.jpeg"], ["item_id", 27]]
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:14
+Completed 204 No Content in 6ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 10:53:07 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/cartItems/13/27" for ::1 at 2019-10-23 10:53:10 -0500
+Processing by CartsController#destroy as */*
+  Parameters: {"id"=>"13", "itemId"=>"27", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:19
+  [1m[36mAllItem Load (0.3ms)[0m  [1m[34mSELECT  "all_items".* FROM "all_items" WHERE "all_items"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "carts"."id" FROM "carts" WHERE "carts"."user_id" = $1 AND "carts"."item_id" = $2[0m  [["user_id", 13], ["item_id", 27]]
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 121], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[36mCart Destroy (1.5ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 121]]
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:22
+Completed 204 No Content in 9ms (ActiveRecord: 3.6ms)
+
+
+Started POST "/login" for ::1 at 2019-10-23 10:53:16 -0500
+Processing by UsersController#authenticate as */*
+  Parameters: {"username"=>"feven", "password"=>"[FILTERED]", "user"=>{"username"=>"feven"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "feven"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+Completed 200 OK in 234ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:53:16 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.4ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 20ms (Views: 16.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:54:53 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.4ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:55:00 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.5ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:55:02 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.4ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:55:08 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (1.1ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:55:49 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.4ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 9ms (Views: 3.8ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:55:52 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.4ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:55:58 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.5ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:56:43 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.9ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:56:45 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.4ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:56:49 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.6ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:57:54 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.3ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:57:56 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.4ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 10:58:02 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (1.0ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 7ms (Views: 3.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 10:58:04 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (1.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 6ms (Views: 2.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 10:58:08 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 10:58:49 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 10:59:04 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 35ms (Views: 2.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 10:59:05 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 10:59:09 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 10:59:14 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 10:59:18 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 10:59:22 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 10:59:35 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 10:59:59 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 6ms (Views: 2.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 11:00:02 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 11:00:04 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 11:00:12 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 11:00:21 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 11:00:26 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 11:00:36 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 11:00:41 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.4ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/favoriteItems/13" for ::1 at 2019-10-23 11:00:42 -0500
+Processing by FavoritesController#myFavorite as */*
+  Parameters: {"id"=>"13", "favorite"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:6
+  [1m[36mFavorite Load (0.9ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/favorites_controller.rb:8
+Completed 200 OK in 18ms (Views: 10.0ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 11:00:46 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/cartItems/13/21" for ::1 at 2019-10-23 11:00:48 -0500
+Processing by CartsController#destroy as */*
+  Parameters: {"id"=>"13", "itemId"=>"21", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:19
+  [1m[36mAllItem Load (0.4ms)[0m  [1m[34mSELECT  "all_items".* FROM "all_items" WHERE "all_items"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:20
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "carts"."id" FROM "carts" WHERE "carts"."user_id" = $1 AND "carts"."item_id" = $2[0m  [["user_id", 13], ["item_id", 21]]
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[36mCart Load (1.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" IN ($1, $2)[0m  [["id", 116], ["id", 117]]
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[36mCart Destroy (0.5ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 116]]
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[36mCart Destroy (0.7ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 117]]
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:22
+Completed 204 No Content in 15ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 11:01:30 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 11:02:11 -0500
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/feventsegay/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (0.7ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 25ms (Views: 7.4ms | ActiveRecord: 11.9ms)
+
+
+Started POST "/addToFavorites/13/20" for ::1 at 2019-10-23 11:02:28 -0500
+Processing by FavoritesController#create as */*
+  Parameters: {"user_id"=>"13", "item_id"=>20, "item_name"=>"Toy Car", "description"=>"Super Fast", "price"=>5, "image_url"=>"http://pluspng.com/img-png/toy-car-png-free-red-toy-car-kids-toys-toy-car-png-image-and-clipart-650.jpg", "id"=>"13", "itemId"=>"20", "favorite"=>{"user_id"=>"13", "item_name"=>"Toy Car", "price"=>5, "image_url"=>"http://pluspng.com/img-png/toy-car-png-free-red-toy-car-kids-toys-toy-car-png-image-and-clipart-650.jpg", "description"=>"Super Fast", "item_id"=>20}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:12
+  [1m[36mAllItem Load (0.3ms)[0m  [1m[34mSELECT  "all_items".* FROM "all_items" WHERE "all_items"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/favorites_controller.rb:14
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:14
+  [1m[36mFavorite Create (0.6ms)[0m  [1m[32mINSERT INTO "favorites" ("user_id", "item_name", "price", "image_url", "description", "item_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 13], ["item_name", "Toy Car"], ["price", 5], ["image_url", "http://pluspng.com/img-png/toy-car-png-free-red-toy-car-kids-toys-toy-car-png-image-and-clipart-650.jpg"], ["description", "Super Fast"], ["item_id", 20]]
+  ↳ app/controllers/favorites_controller.rb:14
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/favorites_controller.rb:14
+Completed 204 No Content in 21ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/favoriteItems/13" for ::1 at 2019-10-23 11:02:30 -0500
+Processing by FavoritesController#myFavorite as */*
+  Parameters: {"id"=>"13", "favorite"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/favorites_controller.rb:6
+  [1m[36mFavorite Load (0.5ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/favorites_controller.rb:8
+Completed 200 OK in 5ms (Views: 1.7ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/addToCart/13/26" for ::1 at 2019-10-23 11:02:33 -0500
+Processing by CartsController#create as */*
+  Parameters: {"user_id"=>"13", "item_id"=>44, "quantity"=>1, "item_name"=>"Soccer Ball", "price"=>25, "image_url"=>"https://images-na.ssl-images-amazon.com/images/I/61Jigwd1kKL._SX425_.jpg", "id"=>"13", "itemId"=>"26", "cart"=>{"user_id"=>"13", "quantity"=>1, "item_name"=>"Soccer Ball", "price"=>25, "image_url"=>"https://images-na.ssl-images-amazon.com/images/I/61Jigwd1kKL._SX425_.jpg", "item_id"=>44}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:12
+  [1m[36mAllItem Load (0.4ms)[0m  [1m[34mSELECT  "all_items".* FROM "all_items" WHERE "all_items"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[36mCart Create (0.8ms)[0m  [1m[32mINSERT INTO "carts" ("user_id", "quantity", "item_name", "price", "image_url", "item_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 13], ["quantity", "1"], ["item_name", "Soccer Ball"], ["price", 25], ["image_url", "https://images-na.ssl-images-amazon.com/images/I/61Jigwd1kKL._SX425_.jpg"], ["item_id", 26]]
+  ↳ app/controllers/carts_controller.rb:14
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:14
+Completed 204 No Content in 20ms (ActiveRecord: 9.3ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 11:02:35 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.8ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/cartItems/13/26" for ::1 at 2019-10-23 11:02:37 -0500
+Processing by CartsController#destroy as */*
+  Parameters: {"id"=>"13", "itemId"=>"26", "cart"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:19
+  [1m[36mAllItem Load (0.4ms)[0m  [1m[34mSELECT  "all_items".* FROM "all_items" WHERE "all_items"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "carts"."id" FROM "carts" WHERE "carts"."user_id" = $1 AND "carts"."item_id" = $2[0m  [["user_id", 13], ["item_id", 26]]
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[36mCart Load (1.6ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."id" IN ($1, $2)[0m  [["id", 120], ["id", 122]]
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[36mCart Destroy (0.4ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 120]]
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[36mCart Destroy (0.4ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 122]]
+  ↳ app/controllers/carts_controller.rb:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:22
+Completed 204 No Content in 15ms (ActiveRecord: 6.3ms)
+
+
+Started DELETE "/cartItems/13" for ::1 at 2019-10-23 11:02:38 -0500
+Processing by CartsController#destroyAll as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:26
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:27
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:27
+  [1m[36mCart Destroy (0.5ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 118]]
+  ↳ app/controllers/carts_controller.rb:27
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:27
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/carts_controller.rb:27
+  [1m[36mCart Destroy (0.4ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 119]]
+  ↳ app/controllers/carts_controller.rb:27
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/carts_controller.rb:27
+Completed 204 No Content in 13ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/cartItems/13" for ::1 at 2019-10-23 11:02:39 -0500
+Processing by CartsController#myCart as */*
+  Parameters: {"id"=>"13", "cart"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/carts_controller.rb:6
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/carts_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.6ms)
+
+
