@@ -35594,3 +35594,67 @@ Processing by UsersController#authenticate as */*
 Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.8ms)
 
 
+Started POST "/login" for ::1 at 2019-10-23 11:53:38 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/feventsegay/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#authenticate as */*
+  Parameters: {"username"=>"feven", "password"=>"[FILTERED]", "user"=>{"username"=>"feven"}}
+  [1m[36mUser Load (25.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "feven"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+Completed 200 OK in 282ms (Views: 1.8ms | ActiveRecord: 37.7ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 11:53:39 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (6.9ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 20ms (Views: 6.5ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/stock.mp4" for ::1 at 2019-10-23 11:53:44 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/stock.mp4"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/login" for ::1 at 2019-10-23 12:27:34 -0500
+Processing by UsersController#authenticate as */*
+  Parameters: {"username"=>"feven", "password"=>"[FILTERED]", "user"=>{"username"=>"feven"}}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "feven"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+Completed 200 OK in 244ms (Views: 6.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/allItems" for ::1 at 2019-10-23 12:27:35 -0500
+Processing by AllItemsController#index as */*
+  Parameters: {"all_item"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18
+  [1m[36mAllItem Load (1.2ms)[0m  [1m[34mSELECT "all_items".* FROM "all_items"[0m
+  ↳ app/controllers/all_items_controller.rb:3
+Completed 200 OK in 13ms (Views: 7.0ms | ActiveRecord: 1.7ms)
+
+
